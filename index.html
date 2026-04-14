@@ -89,12 +89,12 @@
     </div>
 
     <!-- 結算畫面 -->
-    <div id="summary-panel" class="hidden fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-[70] backdrop-blur-sm">
+<div id="summary-panel" class="hidden fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-[70] backdrop-blur-sm">
         <div id="score-card" class="bg-white rounded-[2rem] p-8 w-full max-w-md shadow-2xl text-center transform transition-all pop-in">
             <h2 class="text-2xl font-bold text-slate-500 mb-1" id="summary-name">挑戰者</h2>
-            <div class="text-7xl mb-2 drop-shadow-md" id="summary-badge-icon">🐢</div>
-            <h3 class="text-3xl font-black text-indigo-700 mb-2" id="summary-badge-title">烏龜</h3>
-            <p class="text-sm text-slate-500 mb-8 font-medium px-4" id="summary-badge-quote">「穩紮穩打！龜兔賽跑的贏家就是你，再多練習一點就會變快！」</p>
+            <div class="text-7xl mb-2 drop-shadow-md" id="summary-badge-icon">🚶</div>
+            <h3 class="text-3xl font-black text-indigo-700 mb-2" id="summary-badge-title">走路</h3>
+            <p class="text-sm text-slate-500 mb-8 font-medium px-4" id="summary-badge-quote">「穩紮穩打！學會走路之後就能跑，現在已經掌握基本步調，再多練習就會變快！」</p>
             
             <div class="grid grid-cols-3 gap-4 mb-8">
                 <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
@@ -229,34 +229,33 @@
     }
 
     // 四年級專屬動物獎章標準 (最高標 36 WPM)
-    function getAnimalBadge(wpm) {
-        if (wpm >= 31) return { 
-            icon: '🐆', 
-            title: '獵豹', 
-            quote: '「太驚人了！你已經達到四年級的巔峰水準，全班都為你鼓掌！」' 
+    function getSpeedBadge(wpm) {
+        if (wpm >= 25) return { 
+            icon: '🚀', 
+            title: '健步如飛', 
+            quote: '「太驚人了！你的打字速度健步如飛，已經達到顛峰水準，全班都為你鼓掌！」' 
         };
-        if (wpm >= 21) return { 
-            icon: '🐎', 
-            title: '駿馬', 
-            quote: '「跑得真快！你的手指在鍵盤上跳舞，是班上的打字小尖兵！」' 
+        if (wpm >= 15) return { 
+            icon: '🏃', 
+            title: '跑步', 
+            quote: '「跑得真快！你的手指在鍵盤上像在跑步一樣順暢，是班上的打字小尖兵！」' 
         };
-        if (wpm >= 11) return { 
-            icon: '🐈', 
-            title: '貓咪', 
-            quote: '「身手靈活！你的打字節奏非常棒，已經達到標準水準囉！」' 
+        if (wpm >= 10) return { 
+            icon: '🚶‍♂️', 
+            title: '快走', 
+            quote: '「節奏很棒！你的打字速度進入快走階段，繼續保持就能跑起來囉！」' 
         };
-        if (wpm >= 6) return { 
-            icon: '🐢', 
-            title: '烏龜', 
-            quote: '「穩紮穩打！龜兔賽跑的贏家就是你，再多練習一點就會變快！」' 
+        if (wpm >= 5) return { 
+            icon: '🚶', 
+            title: '走路', 
+            quote: '「穩紮穩打！學會走路之後就能跑，現在已經掌握基本步調，再多練習就會變快！」' 
         };
         return { 
-            icon: '🐌', 
-            title: '樹懶', 
-            quote: '「慢慢來，比較快！先把每個按鍵位置找正確，你一定可以的。」' 
+            icon: '👣', 
+            title: '起步', 
+            quote: '「慢慢來，比較快！這正是剛起步的階段，先把每個按鍵位置找正確，你一定可以的。」' 
         };
     }
-
     async function init() {
         await signInAnonymously(auth);
         onAuthStateChanged(auth, (user) => {
